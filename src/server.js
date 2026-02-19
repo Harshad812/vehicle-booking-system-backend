@@ -1,15 +1,16 @@
-import app from "./app.js"
-import connectDB from "./config/database.js"
+import app from "./app.js";
+import connectDB from "./config/database.js";
 
 const startServer = async () => {
   try {
-    await connectDB()
+    await connectDB();
     app.listen("5001", () => {
-      console.log("server running")
-    })
+      console.log("server running");
+    });
   } catch (error) {
-    process.nextTick(1)
+    console.error("Failed to start server:", error);
+    process.exit(1);
   }
-}
+};
 
 startServer();

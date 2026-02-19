@@ -22,11 +22,11 @@ class VehicleController {
     const query = req.query;
 
     try {
-      const vehicles = await this.VehicleService.getVehicle({ ...query });
+      const result = await this.VehicleService.getVehicle(query);
 
-      return res.status(201).json({
+      return res.status(200).json({
         success: true,
-        data: vehicles,
+        ...result,
       });
     } catch (error) {
       next(error);

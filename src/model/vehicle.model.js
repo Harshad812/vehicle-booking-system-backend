@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-// 1. Define the Schema
 const vehicleSchema = new mongoose.Schema(
   {
     name: {
@@ -18,6 +17,10 @@ const vehicleSchema = new mongoose.Schema(
     availability: {
       type: Boolean,
       required: true,
+    },
+    popularity: {
+      type: Number,
+      default: 0,
     },
   },
   { timestamps: true },
